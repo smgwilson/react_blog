@@ -78,7 +78,7 @@ function validate(values) {
 //reduxForm: 1st argument is form config, 2nd is mapStateToProps, 2nd is mapDispatchToProps
 
 export default reduxForm({
-  form: 'PostsNew',
+  form: 'PostsNewForm',
   fields: ['title', 'categories', 'content'],
   validate
 }, null, { createPost }) (PostsNew);
