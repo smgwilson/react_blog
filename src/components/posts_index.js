@@ -12,8 +12,10 @@ renderPosts() {
   return this.props.posts.map ((post) => {
     return (
       <li className="list-group-item" key={post.id}>
-        <span className="pull-xs-right">{post.categories}</span>
-        <strong>{post.title}</strong>
+        <Link to={"posts/" + post.id}>
+          <span className="pull-xs-right">{post.categories}</span>
+          <strong>{post.title}</strong>
+        </Link>
       </li>
     );
   });
@@ -28,9 +30,9 @@ renderPosts() {
           </Link>
         </div>
         <h3>Posts</h3>
-        <ul className="list-group">
-          Does this fix it?
-        </ul>
+          <ul className="list-group">
+            {this.renderPosts()}
+          </ul>
         </div>
     );
   }
@@ -45,4 +47,4 @@ function mapStateToProps(state) {
 
 }*/
 
-export default connect (null, { fetchPosts }) (PostsIndex);
+export default connect (mapStateToProps, { fetchPosts }) (PostsIndex);
